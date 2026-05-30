@@ -2,22 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>DOND Official Store</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--bg:#040913;
+--card:#0b1423;
+--blue:#3b82f6;
+--text:#ffffff;
+--muted:#9aa4b2;
+}
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
 }
 
 body{
-background:#071018;
+background:radial-gradient(circle at top,#0a1e42,#040913 60%);
+font-family:Inter,sans-serif;
 color:white;
+overflow-x:hidden;
 }
 
 header{
@@ -28,138 +38,150 @@ padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(10px);
-z-index:100;
+background:rgba(4,9,19,.7);
+backdrop-filter:blur(12px);
+z-index:999;
 }
 
 .logo{
+font-family:Orbitron,sans-serif;
 font-size:2rem;
 font-weight:800;
-color:#4da3ff;
+color:white;
+letter-spacing:3px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin-left:20px;
+margin-left:30px;
+font-weight:600;
 }
 
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
 align-items:center;
-text-align:center;
-padding:20px;
-background:
-linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-linear-gradient(135deg,#071018,#12345f);
+padding:140px 8% 80px;
+}
+
+.tag{
+color:var(--blue);
+font-weight:700;
+margin-bottom:20px;
 }
 
 .hero h1{
+font-family:Orbitron,sans-serif;
 font-size:5rem;
-font-weight:800;
+line-height:.95;
+margin-bottom:20px;
 }
 
 .hero p{
-margin-top:15px;
-font-size:1.2rem;
-color:#ccc;
+color:var(--muted);
+font-size:1.1rem;
+max-width:500px;
+line-height:1.7;
 }
 
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:15px 35px;
-background:#4da3ff;
+.price{
+font-size:3rem;
+font-weight:800;
+color:var(--blue);
+margin:30px 0;
+}
+
+.sizes{
+display:flex;
+gap:12px;
+margin-bottom:30px;
+}
+
+.size{
+padding:12px 18px;
+border:1px solid rgba(255,255,255,.15);
 border-radius:12px;
+cursor:pointer;
+}
+
+.size:hover{
+background:var(--blue);
+}
+
+.cta{
+display:inline-block;
+padding:18px 35px;
+background:var(--blue);
+border-radius:14px;
 text-decoration:none;
 color:white;
 font-weight:700;
 }
 
-.products{
-padding:120px 8%;
+.product-images{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
 }
 
-.section-title{
-font-size:3rem;
-margin-bottom:40px;
-text-align:center;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border-radius:20px;
-overflow:hidden;
+.product-images img{
+width:45%;
+max-width:350px;
+filter:drop-shadow(0 25px 40px rgba(0,0,0,.5));
 transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-8px);
+.product-images img:hover{
+transform:translateY(-10px);
 }
 
-.card img{
-width:100%;
-height:450px;
-object-fit:contain;
-background:#111;
-padding:20px;
+.features{
+padding:60px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-.card-content{
+.feature{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
 padding:25px;
+border-radius:18px;
 }
 
-.card-content h3{
-font-size:1.5rem;
+.feature h3{
 margin-bottom:10px;
 }
 
-.price{
-font-size:1.3rem;
-color:#4da3ff;
-font-weight:700;
-margin-bottom:15px;
-}
-
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-background:#4da3ff;
-color:white;
-font-weight:700;
-cursor:pointer;
-}
-
-.cart{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#4da3ff;
-padding:15px 25px;
-border-radius:50px;
-font-weight:700;
+.feature p{
+color:var(--muted);
 }
 
 footer{
-padding:50px;
+padding:80px 8%;
 text-align:center;
-color:#aaa;
+color:#7f8a99;
 }
 
-@media(max-width:768px){
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero p{
+margin:auto;
+}
+
+.product-images{
+margin-top:30px;
+}
+
 .hero h1{
 font-size:3rem;
 }
@@ -172,84 +194,82 @@ font-size:3rem;
 <div class="logo">DOND</div>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#shop">Shop</a>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </nav>
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
+
 <div>
-<h1>DOND</h1>
-<p>Official Merchandise & Workwear</p>
-<a href="#shop" class="btn">SHOP NOW</a>
-</div>
-</section>
 
-<section class="products" id="shop">
+<div class="tag">OFFICIAL MERCH</div>
 
-<h2 class="section-title">Featured Merch</h2>
-
-<div class="grid">
-
-<div class="card">
-<img src="images/jacket-front.png" alt="DOND Jacket Front">
-
-<div class="card-content">
-<h3>DOND Reflective Jacket</h3>
-<div class="price">€89.99</div>
+<h1>
+DOND<br>
+REFLECTIVE<br>
+JACKET
+</h1>
 
 <p>
-Premium reflective workwear jacket with official branding.
+Premium industrial workwear jacket built for visibility,
+durability and all-day comfort. Official DOND gear.
 </p>
 
-<br>
-
-<button onclick="addToCart('DOND Reflective Jacket')">
-Add To Cart
-</button>
-</div>
-</div>
-
-<div class="card">
-<img src="images/jacket-back.png" alt="DOND Jacket Back">
-
-<div class="card-content">
-<h3>DOND Reflective Jacket (Back View)</h3>
 <div class="price">€89.99</div>
 
-<p>
-High visibility industrial style design.
-</p>
-
-<br>
-
-<button onclick="addToCart('DOND Reflective Jacket')">
-Add To Cart
-</button>
-</div>
+<div class="sizes">
+<div class="size">S</div>
+<div class="size">M</div>
+<div class="size">L</div>
+<div class="size">XL</div>
+<div class="size">XXL</div>
 </div>
 
+<a href="#" class="cta">ADD TO CART</a>
+
 </div>
+
+<div class="product-images">
+
+<img src="jacket-front.png" alt="Front">
+
+<img src="jacket-back.png" alt="Back">
+
+</div>
+
 </section>
 
-<div class="cart">
-🛒 Cart: <span id="count">0</span>
+<section class="features">
+
+<div class="feature">
+<h3>High Visibility</h3>
+<p>Reflective details designed for maximum safety.</p>
 </div>
+
+<div class="feature">
+<h3>Durable Material</h3>
+<p>Built for demanding work environments.</p>
+</div>
+
+<div class="feature">
+<h3>All Day Comfort</h3>
+<p>Lightweight design with a professional fit.</p>
+</div>
+
+<div class="feature">
+<h3>Official DOND Gear</h3>
+<p>Authentic merchandise from DOND.</p>
+</div>
+
+</section>
 
 <footer>
 © 2026 DOND. All Rights Reserved.
 </footer>
 
-<script>
-let count = 0;
-
-function addToCart(product){
-count++;
-document.getElementById("count").innerText = count;
-
-alert(product + " added to cart!");
-}
-</script>
-
 </body>
+</html>
 </html>
