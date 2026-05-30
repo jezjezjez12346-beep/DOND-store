@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOND Official Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#071018;
+color:white;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+z-index:100;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:#4da3ff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+linear-gradient(135deg,#071018,#12345f);
+}
+
+.hero h1{
+font-size:5rem;
+font-weight:800;
+}
+
+.hero p{
+margin-top:15px;
+font-size:1.2rem;
+color:#ccc;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:15px 35px;
+background:#4da3ff;
+border-radius:12px;
+text-decoration:none;
+color:white;
+font-weight:700;
+}
+
+.products{
+padding:120px 8%;
+}
+
+.section-title{
+font-size:3rem;
+margin-bottom:40px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:450px;
+object-fit:contain;
+background:#111;
+padding:20px;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card-content h3{
+font-size:1.5rem;
+margin-bottom:10px;
+}
+
+.price{
+font-size:1.3rem;
+color:#4da3ff;
+font-weight:700;
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#4da3ff;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+.cart{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#4da3ff;
+padding:15px 25px;
+border-radius:50px;
+font-weight:700;
+}
+
+footer{
+padding:50px;
+text-align:center;
+color:#aaa;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:3rem;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">DOND</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<h1>DOND</h1>
+<p>Official Merchandise & Workwear</p>
+<a href="#shop" class="btn">SHOP NOW</a>
+</div>
+</section>
+
+<section class="products" id="shop">
+
+<h2 class="section-title">Featured Merch</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/jacket-front.png" alt="DOND Jacket Front">
+
+<div class="card-content">
+<h3>DOND Reflective Jacket</h3>
+<div class="price">€89.99</div>
+
+<p>
+Premium reflective workwear jacket with official branding.
+</p>
+
+<br>
+
+<button onclick="addToCart('DOND Reflective Jacket')">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="images/jacket-back.png" alt="DOND Jacket Back">
+
+<div class="card-content">
+<h3>DOND Reflective Jacket (Back View)</h3>
+<div class="price">€89.99</div>
+
+<p>
+High visibility industrial style design.
+</p>
+
+<br>
+
+<button onclick="addToCart('DOND Reflective Jacket')">
+Add To Cart
+</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="cart">
+🛒 Cart: <span id="count">0</span>
+</div>
+
+<footer>
+© 2026 DOND. All Rights Reserved.
+</footer>
+
+<script>
+let count = 0;
+
+function addToCart(product){
+count++;
+document.getElementById("count").innerText = count;
+
+alert(product + " added to cart!");
+}
+</script>
+
+</body>
+</html>
